@@ -2,7 +2,7 @@ package q4
 
 import (
 	"errors"
-	"syscall"
+	"math"
 )
 
 //Uma loja virtual de roupas recebeu várias listas de produtos vendidos em diferentes dias da semana. O dono da loja
@@ -36,7 +36,7 @@ func ClassifyPrices(prices []int) (int, error) {
 			return 1, nil
 		}
 
-		var decrescenteAnterior int = syscall.INFINITE
+		var decrescenteAnterior int = math.MaxInt64
 		var decrescentePassou bool = true
 		for _, price := range prices {
 			if decrescenteAnterior > price {
